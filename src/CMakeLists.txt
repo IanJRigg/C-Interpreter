@@ -26,7 +26,7 @@ set_target_properties(
     ${MAIN_EXECTUABLE_NAME}
     PROPERTIES
         # C++ version information
-        CXX_STANDARD 20
+        CXX_STANDARD 17
         CXX_STANDARD_REQUIRED YES
         CXX_EXTENSIONS NO
 
