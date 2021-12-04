@@ -25,22 +25,26 @@ void evaluate_tokens(const std::string& program)
  * \brief Main entry point to the interpreter
  * \param file_path Path to the provided file
  *************************************************************************************************/
-void Interpret(const std::string& file_path)
+Response_Code Interpret(const std::string& file_path)
 {
 	if(file_path.back() != 'c')
 	{
-		std::cerr << "Please provide a .c file." << std::endl;
-		return;
+		return Response_Code::Invalid_File_Type;
 	}
 
     std::ifstream stream(file_path);
+    if(stream.fail())
+    {
+        return Response_Code::File_Read_Error;
+    }
+
     std::stringstream buffer;
     buffer << stream.rdbuf();
 
     const auto program = buffer.str();
     evaluate_tokens(program);
 
-    return;
+    return Response_Code::Success;
 }
 
 } // Namespace Interpreter
