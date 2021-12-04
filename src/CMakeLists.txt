@@ -11,10 +11,12 @@ set(MAIN_EXECTUABLE_NAME interpreter)
 set(SOURCE_FILES
     main.cpp
     interpreter.cpp
+    virtual-machine.cpp
 )
 
 set(HEADER_FILES
     interpreter.h
+    virtual-machine.h
 )
 
 add_executable(
