@@ -35,5 +35,7 @@
 ### My Stuff comes here
 include
 lib
+doc
+build
 
 test/catch.hpp
