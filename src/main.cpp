@@ -46,8 +46,7 @@ int main(int argc, char** argv)
 	}
 
 	const std::string file_path(argv[1]);
-    const auto response = Interpreter::Interpret(file_path);
-    demux_response_code(response);
+    demux_response_code(Interpreter::Interpret(file_path));
 
 	return 0;
 }
