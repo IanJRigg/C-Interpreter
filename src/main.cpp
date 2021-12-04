@@ -1,20 +1,6 @@
+#include "interpreter.h"
+
 #include <iostream>
-#include <fstream>
-#include <sstream>
-
-/**********************************************************************************************//**
- * \brief Main entry point to the interpreter
- * \param program The text for the provided file
- *************************************************************************************************/
-void evaluate_tokens(const std::string& program)
-{
-    for(const auto character : program)
-    {
-        std::cout << character;
-    }
-
-    std::cout << std::endl;
-}
 
 /**********************************************************************************************//**
  * \brief Main entry point to the interpreter
@@ -29,19 +15,8 @@ int main(int argc, char** argv)
         return 0;
 	}
 
-	std::string file_path(argv[1]);
-	if(file_path.back() != 'c')
-	{
-		std::cerr << "Please provide a .c file." << std::endl;
-		return 0;
-	}
-
-    std::ifstream stream(file_path);
-    std::stringstream buffer;
-    buffer << stream.rdbuf();
-
-    const auto program = buffer.str();
-    evaluate_tokens(program);
+	const std::string file_path(argv[1]);
+    Interpreter::Interpret(file_path);
 
 	return 0;
 }

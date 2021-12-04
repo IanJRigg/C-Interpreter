@@ -10,10 +10,11 @@ set(MAIN_EXECTUABLE_NAME interpreter)
 
 set(SOURCE_FILES
     main.cpp
+    interpreter.cpp
 )
 
 set(HEADER_FILES
-
+    interpreter.h
 )
 
 add_executable(
