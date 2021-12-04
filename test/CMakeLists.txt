@@ -8,10 +8,13 @@ set(TEST_RUNNER_NAME runner)
 
 set(TEST_SOURCE_FILES
     runner.cpp
+    interpreter-tests.cpp
+    ../src/interpreter.cpp
 )
 
 set(TEST_HEADER_FILES
-
+    constants.h
+    ../src/interpreter.h
 )
 
 add_executable(
