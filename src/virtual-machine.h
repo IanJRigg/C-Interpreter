@@ -3,29 +3,21 @@
 
 #include <cstdint>
 #include <vector>
+#include <memory>
 
-namespace
-{
 class Virtual_Machine
 {
 public:
     Virtual_Machine();
 
-    void load_program(const std::vector<int32_t>& program);
+    virtual ~Virtual_Machine();
+
+    void load(const std::vector<int32_t>& program);
     void execute();
 
 private:
-
-private:
-    std::vector<int32_t> text;
-    std::vector<int32_t> stack;
-    std::vector<int8_t> data;
-
-    int program_counter;
-    int base_pointer;
-    int stack_pointer;
-    int register_A;
-};
+	class Impl;
+	std::unique_ptr<Impl> state;
 };
 
 #endif
