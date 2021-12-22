@@ -1,4 +1,5 @@
 #include "interpreter.h"
+#include "virtual-machine.h"
 
 #include <iostream>
 #include <fstream>
@@ -8,17 +9,19 @@ namespace Interpreter
 {
 
 /**********************************************************************************************//**
- * \brief Function to process the provided program a
- * \param program The text for the provided file
+ * \brief Function to process the provided file_contents
+ * \param file_contents The text for the provided file
  *************************************************************************************************/
-void evaluate_tokens(const std::string& program)
+std::vector<int32_t> evaluate_tokens(const std::string& file_contents)
 {
-    for(const auto character : program)
+    std::vector<int32_t> result;
+
+    for(const auto character : file_contents)
     {
-        std::cout << character;
+        // Do nothing here for now
     }
 
-    std::cout << std::endl;
+    return result;
 }
 
 /**********************************************************************************************//**
@@ -41,8 +44,12 @@ Response_Code Interpret(const std::string& file_path)
     std::stringstream buffer;
     buffer << stream.rdbuf();
 
-    const auto program = buffer.str();
-    evaluate_tokens(program);
+    const auto file_contents = buffer.str();
+    const auto program = evaluate_tokens(file_contents);
+
+    Virtual_Machine vm;
+    vm.load(program);
+    vm.execute();
 
     return Response_Code::Success;
 }
