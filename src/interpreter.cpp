@@ -12,9 +12,9 @@ namespace Interpreter
  * \brief Function to process the provided file_contents
  * \param file_contents The text for the provided file
  *************************************************************************************************/
-std::vector<int32_t> evaluate_tokens(const std::string& file_contents)
+std::vector<uint8_t> evaluate_tokens(const std::string& file_contents)
 {
-    std::vector<int32_t> result;
+    std::vector<uint8_t> result;
 
     for(const auto character : file_contents)
     {

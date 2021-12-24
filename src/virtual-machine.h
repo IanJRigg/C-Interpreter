@@ -11,7 +11,7 @@ public:
 
     virtual ~Virtual_Machine() = default;
 
-    void load(const std::vector<int32_t>& program);
+    void load(const std::vector<uint8_t>& program);
     void execute();
 
 private:
@@ -30,6 +30,8 @@ private:
     void handle_SI();
 
 private:
+    // All of these should be std::arrays, but that would require exposing the
+    // memory sizes. 
     std::vector<uint8_t> text;
     std::vector<uint8_t> stack;
     std::vector<char> data;
