@@ -28,6 +28,33 @@ private:
     void handle_LI();
     void handle_SC();
     void handle_SI();
+    void handle_PUSH();
+    void handle_JMP();
+    void handle_JZ();
+    void handle_JNZ();
+    void handle_CALL();
+    void handle_ENT();
+    void handle_ADJ();
+    void handle_LEV();
+    void handle_LEA();
+
+    // Arithmetic instructions
+    void handle_OR();
+    void handle_XOR();
+    void handle_AND();
+    void handle_EQ();
+    void handle_NE();
+    void handle_LT();
+    void handle_GT();
+    void handle_LE();
+    void handle_GE();
+    void handle_SHL();
+    void handle_SHR();
+    void handle_ADD();
+    void handle_SUB();
+    void handle_MUL();
+    void handle_DIV();
+    void handle_MOD();
 
 private:
     // All of these should be std::arrays, but that would require exposing the
